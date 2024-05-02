@@ -38,9 +38,30 @@ class Bola {
             xoc = true;
             this.vy = -this.vy;
         }
-        //Xoc lateral dret
-        //Xoc lateral esquerra
+        //Xoc lateral dret 
+        if(trajectoria.puntB.x - this.radi > canvas.width){ //no funciona pq fa servir canvas, no esta definit
+            exces= (trajectoria.puntB.x - this.radi)/this.vx;
+            this.posicio.x = this.radi;
+            this.posicio.y = trajectoria.puntB.y - exces*this.vy;
+            xoc = true;
+            this.vx = -this.vx;
+        }
+        //Xoc lateral esquerra 
+        if(trajectoria.puntB.x - this.radi < 0){
+            exces= (trajectoria.puntB.x - this.radi)/this.vx;
+            this.posicio.x = this.radi;
+            this.posicio.y = trajectoria.puntB.y - exces*this.vy;
+            xoc = true;
+            this.vx = -this.vx;
+        }
         //Xoc lateral inferior
+        if(trajectoria.puntB.y - this.radi > canvas.height){ //no funciona pq fa servir canvas, no esta definit
+            exces= (trajectoria.puntB.y - this.radi)/this.vy;
+            this.posicio.x = trajectoria.puntB.x - exces*this.vx;
+            this.posicio.y = this.radi;
+            xoc = true;
+            this.vy = -this.vy;
+        }
       
         //Xoc amb la pala
 
@@ -65,14 +86,14 @@ class Bola {
        let puntIMin;
        let distanciaIMin = Infinity;
        let voraI;
-
        //calcular punt d'intersecció amb les 4 vores del rectangle
        //necessitem coneixer els 4 segments del rectangle
        //vora superior
        let segmentVoraSuperior = new  Segment(rectangle.posicio,
            new Punt(rectangle.posicio.x + rectangle.amplada, rectangle.posicio.y));
        //vora inferior
-      
+        let segmentVoraInferior = new Segment(rectangle.posicio,
+             new Punt(rectangle.posicio.x+rectangle.amplada, rectangle.posicio.y));
        //vora esquerra
       
        //vora dreta
@@ -94,6 +115,15 @@ class Bola {
            }
        }
        //vora inferior
+       puntI = segment.puntInterseccio(segmentVoraInferior);
+       if(puntI){
+        distanciaI = Punt.distanciaDosPunts(segment.puntA,puntI);
+        if(distanciaI < distanciaIMin){
+            distanciaIMin = distanciaI;
+            puntIMin = puntI;
+            voraI = "inferior";
+        }
+       }
        
        //vora esquerra
       
