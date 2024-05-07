@@ -1,0 +1,45 @@
+body {
+    background: #333 url(../images/fondo\ neon.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100vh; /* Utiliza toda la altura de la ventana */
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column; /* Los botones se colocarán uno debajo del otro */
+    align-items: center; /* Centra los botones horizontalmente */
+}
+
+.buttoneasy, .buttonmedium, .buttondifi, .buttonplay {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 15px 25px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave al pasar el ratón */
+    margin-bottom: 10px; /* Espacio entre los botones */
+}
+
+.buttonplay {
+    background-color: white;
+}
+.buttoneasy {
+    background-color: #0095ff;
+}
+.buttonmedium {
+    background-color: #1dcf23;
+}
+.buttondifi {
+    background-color: #ff0000;
+}
+
+.buttonplay:hover, .buttoneasy:hover, .buttonmedium:hover, .buttondifi:hover {
+    background-color: #e3c60a;
+}
