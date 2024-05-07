@@ -41,6 +41,17 @@ class Joc{
         this.totxo.draw(this.ctx);
         $(document).on("keydown",{joc:this}, function(e){
            //Moviment de la pala
+           if(e.which == 39){
+            if(e.data.joc.pala.posicio.x+65 > joc.amplada){ //dreta
+                return;
+            }
+            e.data.joc.pala.mou(5, 0);
+           } else if (e.which == 37){ //esquerra
+            if(e.data.joc.pala.posicio.x <= 0){
+                return;
+            }
+            e.data.joc.pala.mou(-5, 0);
+           }
         });
         $(document).on("keyup", {joc:this}, function(e){
             //Moviment de la pala
