@@ -39,7 +39,7 @@ class Bola {
             this.vy = -this.vy;
         }
         //Xoc lateral dret 
-        if(trajectoria.puntB.x - this.radi > 300){ //300 = canvas.width luego lo hago bien
+        if(trajectoria.puntB.x + this.radi > joc.canvas.width){ //300 = canvas.width luego lo hago bien
             exces= (trajectoria.puntB.x - this.radi)/this.vx;
             this.posicio.x = 300-this.radi;
             this.vx = -this.vx;
@@ -54,7 +54,7 @@ class Bola {
             xoc = true;
         }
         //Xoc lateral inferior
-        if(trajectoria.puntB.y - this.radi > 150){ //150 = canvas.height hay que encontrar el verdadero canvas height
+        if(trajectoria.puntB.y + this.radi > joc.canvas.height){ //150 = canvas.height hay que encontrar el verdadero canvas height
             exces= (trajectoria.puntB.y - this.radi)/this.vy;
             this.posicio.y = 150-this.radi;
             xoc = true;
@@ -62,7 +62,7 @@ class Bola {
         }
       
         //Xoc amb la pala
-
+        
         //Xoc amb els totxos del mur
         //Utilitzem el mètode INTERSECCIOSEGMENTRECTANGLE
         
