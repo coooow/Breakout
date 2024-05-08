@@ -1,7 +1,7 @@
 body {
-    background: #333 url(../images/fondo\ neon.jpg);
+    background: #333 url(../images/giffonde.gif);
     background-repeat: no-repeat;
-    background-size: 100% auto;
+    background-size: cover;
     display: flex;
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
@@ -15,20 +15,26 @@ body {
 }
 
 .buttoneasy, .buttonmedium, .buttondifi, .buttonplay {
+    margin-top: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding: 15px 25px;
     font-size: 16px;
     text-align: center;
-    text-decoration: none;
-    border: none;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Transición suave al pasar el ratón */
-    margin-bottom: 10px; /* Espacio entre los botones */
-}
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave al pasar el ratón */
+    margin-bottom: 15px; /* Espacio entre los botones */
+    display: inline-block;
+    text-shadow: 
+            0 0 5px white, /* Contorno blanco */
+            0 0 5px white, /* Contorno blanco */
+            0 0 5px white; /* Contorno blanco */
+    }
 
 .buttonplay {
+    margin-top: 0px;
     background-color: white;
+    padding: 15px 60px;
 }
 .buttoneasy {
     background-color: #0095ff;
@@ -42,4 +48,32 @@ body {
 
 .buttonplay:hover, .buttoneasy:hover, .buttonmedium:hover, .buttondifi:hover {
     background-color: #e3c60a;
+    transform: translateY(-5px) rotateX(10deg);
+    top: 5px;
+    left: 5px; 
 }
+
+#minimenu{
+	position:relative;
+	margin-top: 40px;
+	height:400px;
+	background: rgba(255, 255, 255, 0.8);
+	display: block; 
+	margin: 0 auto;
+    width: 400px;
+	margin: 20px auto;
+  	padding: 20px;
+}
+
+.titulo, .subtitulo {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-shadow: 
+    0 0 5px white, /* Contorno blanco */
+    0 0 5px white, /* Contorno blanco */
+    0 0 5px white; /* Contorno blanco */
+}  
+
+
+
