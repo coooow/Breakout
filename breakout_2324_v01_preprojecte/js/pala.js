@@ -17,13 +17,13 @@ class Pala {
             if (this.posicio.x <= 0) {
                 return;
             }
-            this.mou(-4, 0);
+            this.mou(-5, 0);
         }
         if (joc.key.RIGHT.pressed) {
             if (this.posicio.x + 65 > joc.amplada) { //dreta
                 return;
             }
-            this.mou(4, 0);
+            this.mou(5, 0);
         }
     }
 
