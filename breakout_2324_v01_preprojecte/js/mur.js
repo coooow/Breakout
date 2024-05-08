@@ -24,7 +24,7 @@ class Mur {
             }
         }
     }
-    draw() {
+    draw(ctx) {
         //for (int i; i < nivells[])
     }
 
