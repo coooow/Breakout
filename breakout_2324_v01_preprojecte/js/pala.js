@@ -3,19 +3,30 @@
 */
 
 class Pala {
-    constructor(puntPosicio, amplada, alcada){      
+    constructor(puntPosicio, amplada, alcada) {
         this.amplada = amplada;
         this.alcada = alcada;
         this.posicio = puntPosicio;
-        this.vy = 2;     
+        this.vy = 2;
         this.vx = 2;                                                     // velocitat = 10 píxels per fotograma
-        this.color = "#D30"; 
+        this.color = "#D30";
     }
 
-    update(){
-       
+    update() {
+        if (joc.key.LEFT.pressed) {
+            if (this.posicio.x <= 0) {
+                return;
+            }
+            this.mou(-5, 0);
+        }
+        if (joc.key.RIGHT.pressed) {
+            if (this.posicio.x + 65 > joc.amplada) { //dreta
+                return;
+            }
+            this.mou(5, 0);
+        }
     }
-   
+
     draw(ctx) {
         ctx.save();
         ctx.fillStyle = this.color;
@@ -23,7 +34,7 @@ class Pala {
         ctx.restore();
 
     }
-    mou(x,y){
+    mou(x, y) {
         this.posicio.x += x;
         this.posicio.y += y;
     }
