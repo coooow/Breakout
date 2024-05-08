@@ -3,18 +3,26 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
-    height: 100vh; /* Utiliza toda la altura de la ventana */
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+    height: 100vh;
+    /* Utiliza toda la altura de la ventana */
 }
 
 .button-container {
     display: flex;
-    flex-direction: column; /* Los botones se colocarán uno debajo del otro */
-    align-items: center; /* Centra los botones horizontalmente */
+    flex-direction: column;
+    /* Los botones se colocarán uno debajo del otro */
+    align-items: center;
+    /* Centra los botones horizontalmente */
 }
 
-.buttoneasy, .buttonmedium, .buttondifi, .buttonplay {
+.buttoneasy,
+.buttonmedium,
+.buttondifi,
+.buttonplay {
     margin-top: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding: 15px 25px;
@@ -22,58 +30,81 @@ body {
     text-align: center;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave al pasar el ratón */
-    margin-bottom: 15px; /* Espacio entre los botones */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    /* Transición suave al pasar el ratón */
+    margin-bottom: 15px;
+    /* Espacio entre los botones */
     display: inline-block;
-    text-shadow: 
-            0 0 5px white, /* Contorno blanco */
-            0 0 5px white, /* Contorno blanco */
-            0 0 5px white; /* Contorno blanco */
-    }
+    text-shadow:
+        0 0 5px white,
+        /* Contorno blanco */
+        0 0 5px white,
+        /* Contorno blanco */
+        0 0 5px white;
+    /* Contorno blanco */
+}
 
 .buttonplay {
     margin-top: 0px;
     background-color: white;
     padding: 15px 60px;
 }
+
 .buttoneasy {
     background-color: #0095ff;
 }
+
 .buttonmedium {
     background-color: #1dcf23;
 }
+
 .buttondifi {
     background-color: #ff0000;
 }
 
-.buttonplay:hover, .buttoneasy:hover, .buttonmedium:hover, .buttondifi:hover {
-    background-color: #e3c60a;
+.buttonplay:hover,
+.buttoneasy:hover,
+.buttonmedium:hover,
+.buttondifi:hover,
+.hover-activado1,
+.hover-activado2,
+.hover-activado3 {
+    background-image: linear-gradient(to bottom right, rgb(255, 251, 0), rgb(255, 124, 2));
     transform: translateY(-5px) rotateX(10deg);
     top: 5px;
-    left: 5px; 
+    left: 5px;
 }
 
-#minimenu{
-	position:relative;
-	margin-top: 40px;
-	height:400px;
-	background: rgba(255, 255, 255, 0.8);
-	display: block; 
-	margin: 0 auto;
+
+#minimenu {
+    position: relative;
+    margin-top: 40px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.8);
+    display: block;
+    margin: 0 auto;
     width: 400px;
-	margin: 20px auto;
-  	padding: 20px;
+    margin: 20px auto;
+    padding: 20px;
 }
 
-.titulo, .subtitulo {
+.titulo,
+.subtitulo {
     display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    text-shadow: 
-    0 0 5px white, /* Contorno blanco */
-    0 0 5px white, /* Contorno blanco */
-    0 0 5px white; /* Contorno blanco */
-}  
+    flex-direction: column;
+    align-items: center;
+    text-shadow:
+        0 0 5px white,
+        /* Contorno blanco */
+        0 0 5px white,
+        /* Contorno blanco */
+        0 0 5px white;
+    /* Contorno blanco */
+}
 
-
-
+.musica {
+    margin-top: 50px;
+    z-index: 9999;
+    left: 5%;
+    top: 85%;
+}
