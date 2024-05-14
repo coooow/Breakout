@@ -27,7 +27,7 @@ class Mur {
                 }
             }
         }
-        console.log(this.totxosArray);
+        return this.totxosArray;
     }
 
     /*

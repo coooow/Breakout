@@ -27,6 +27,8 @@ class Bola {
         let trajectoria = new Segment(puntActual, puntSeguent);
         let exces;
         let xoc = false;
+        let toxtoXoc = false;
+        let i = 0;
 
 
         //Xoc amb els laterals del canvas
@@ -70,7 +72,43 @@ class Bola {
             this.vy = -this.vy;
         }
         //Xoc amb els totxos del mur
-        
+        while (!toxtoXoc && i < joc.totxosArray.length) {
+            if (this.interseccioSegmentRectangle(trajectoria, joc.totxosArray[i])) {
+                switch (this.interseccioSegmentRectangle(trajectoria, joc.totxosArray[i]).vora) {
+                    case "superior":
+                        exces = (trajectoria.puntB.y - this.radi) / this.vy;
+                        /* this.posicio.x = trajectoria.puntB.x - exces * this.vx; */
+                        this.posicio.y = this.posicio.y - this.radi;
+                        xoc = true;
+                        this.vy = -this.vy;
+                        console.log("superior");
+                        break;
+                    case "esquerra":
+                        this.posicio.x = this.posicio.x + this.radi;
+                        this.vx = -this.vx;
+                        console.log("esquerra");
+                        xoc = true;
+                        break;
+                    case "dreta":
+                        this.posicio.x = this.posicio.x - this.radi;
+                        this.vx = -this.vx;
+                        console.log("dreta");
+                        xoc = true;
+                        break;
+                    case "inferior":
+                        this.posicio.y = this.posicio.y + this.radi;
+                        this.vy = -this.vy;
+                        xoc = true;
+                        console.log("inferior");
+                        break;
+                }
+                toxtoXoc = true;
+                joc.totxosArray[i].tocat = true;
+                joc.totxosArray.splice(i, 1);
+            }
+
+            i++;
+        }
         //Utilitzem el mètode INTERSECCIOSEGMENTRECTANGLE
 
 
@@ -97,14 +135,14 @@ class Bola {
         let segmentVoraSuperior = new Segment(rectangle.posicio,
             new Punt(rectangle.posicio.x + rectangle.amplada, rectangle.posicio.y));
         //vora inferior
-        let segmentVoraInferior = new Segment(rectangle.posicio,
-            new Punt(rectangle.posicio.x + rectangle.amplada, rectangle.posicio.y));
+        let segmentVoraInferior = new Segment(new Punt(rectangle.posicio.x, rectangle.posicio.y + rectangle.alcada),
+            new Punt(rectangle.posicio.x + rectangle.amplada, rectangle.posicio.y + rectangle.alcada));
         //vora esquerra
         let segmentVoraEsquerra = new Segment(rectangle.posicio,
-            new Punt(rectangle.posicio.y + rectangle.alcada, rectangle.posicio.x));
+            new Punt(rectangle.posicio.x, rectangle.posicio.y + rectangle.alcada));
         //vora dreta
-        let segmentVoraDreta = new Segment(rectangle.posicio,
-            new Punt(rectangle.posicio.y + rectangle.alcada, rectangle.posicio.x));
+        let segmentVoraDreta = new Segment(new Punt(rectangle.posicio.x + rectangle.amplada, rectangle.posicio.y),
+            new Punt(rectangle.posicio.x + rectangle.amplada, rectangle.posicio.y + rectangle.alcada));
 
 
         //2n REVISAR SI EXISTEIX UN PUNT D'INTERSECCIÓ EN UN DELS 4 SEGMENTS
