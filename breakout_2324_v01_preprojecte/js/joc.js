@@ -17,7 +17,6 @@ class Joc {
 
         this.bola = new Bola(new Punt(this.canvas.width / 2, this.canvas.height / 2), 3);
         this.pala = new Pala(new Punt((this.canvas.width - 60) / 2, this.canvas.height - 15), 60, 4);
-        /* this.mur = new Totxo(new Punt((this.canvas.width - 120) / 2, (this.canvas.height - 20) / 3), 30, 10, "#0ad"); */ 
         this.mur = new Mur();
         this.mur.defineixNivells();
         this.mur.generaMur(0);

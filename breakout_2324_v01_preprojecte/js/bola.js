@@ -70,7 +70,7 @@ class Bola {
             this.vy = -this.vy;
         }
         //Xoc amb els totxos del mur
-
+        
         //Utilitzem el mètode INTERSECCIOSEGMENTRECTANGLE
 
 
@@ -100,8 +100,11 @@ class Bola {
         let segmentVoraInferior = new Segment(rectangle.posicio,
             new Punt(rectangle.posicio.x + rectangle.amplada, rectangle.posicio.y));
         //vora esquerra
-
+        let segmentVoraEsquerra = new Segment(rectangle.posicio,
+            new Punt(rectangle.posicio.y + rectangle.alcada, rectangle.posicio.x));
         //vora dreta
+        let segmentVoraDreta = new Segment(rectangle.posicio,
+            new Punt(rectangle.posicio.y + rectangle.alcada, rectangle.posicio.x));
 
 
         //2n REVISAR SI EXISTEIX UN PUNT D'INTERSECCIÓ EN UN DELS 4 SEGMENTS
@@ -131,8 +134,25 @@ class Bola {
         }
 
         //vora esquerra
-
+        puntI = segment.puntInterseccio(segmentVoraEsquerra);
+        if (puntI) {
+            distanciaI = Punt.distanciaDosPunts(segment.puntA, puntI);
+            if (distanciaI < distanciaIMin) {
+                distanciaIMin = distanciaI;
+                puntIMin = puntI;
+                voraI = "esquerra";
+            }
+        }
         //vora dreta
+        puntI = segment.puntInterseccio(segmentVoraDreta);
+        if (puntI) {
+            distanciaI = Punt.distanciaDosPunts(segment.puntA, puntI);
+            if (distanciaI < distanciaIMin) {
+                distanciaIMin = distanciaI;
+                puntIMin = puntI;
+                voraI = "dreta";
+            }
+        }
 
         //Retorna la vora on s'ha produït la col·lisió, i el punt (x,y)
         if (voraI) {
