@@ -62,7 +62,6 @@ body {
     background-color: #ff0000;
 }
 
-.buttonplay:hover,
 .buttoneasy:hover,
 .buttonmedium:hover,
 .buttondifi:hover,
@@ -90,6 +89,8 @@ body {
 
 .titulo,
 .subtitulo {
+    margin-top: 2px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -102,9 +103,97 @@ body {
     /* Contorno blanco */
 }
 
+
 .musica {
-    margin-top: 50px;
-    z-index: 9999;
-    left: 5%;
-    top: 85%;
+    position: fixed;  
+    bottom: 50px;     
+    left: 50px;        
+    z-index: 9999;    
+}
+
+
+
+#player-form {
+    margin: 10px 0;
+}
+
+#player-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+#player-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#player-form button {
+    padding: 10px 20px;
+    background-color: #ffae00;
+    color: #000000;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    /* Transición suave al pasar el ratón */
+    margin-bottom: 15px;
+    /* Espacio entre los botones */
+    display: inline-block;
+    text-shadow:
+        0 0 5px white,
+        /* Contorno blanco */
+        0 0 5px white,
+        /* Contorno blanco */
+        0 0 5px white;
+    /* Contorno blanco */
+}
+
+.buttonplay:hover {
+    transform: translateY(-3px);
+}
+#player-form button:hover {
+    transform: translateY(-3px);
+}
+
+#greeting {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #fff;
+    text-shadow: 0 0 5px #fff;
+}
+
+#ranking {
+        position: fixed;
+        height: 350px;
+        background: rgba(255, 255, 255, 0.8);
+        width: 200px;
+        bottom: 27%;     
+        right: 15%;   
+}
+
+#ranking-list {
+    margin-left: 35%;
+    list-style-type: none;
+    padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    flex-direction: column;
+    text-shadow:
+        0 0 5px white,
+        /* Contorno blanco */
+        0 0 5px white,
+        /* Contorno blanco */
+        0 0 5px white;
+    /* Contorno blanco */
+}
+
+#ranking-list li {
+    margin: 5px 0;  
 }
