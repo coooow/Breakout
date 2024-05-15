@@ -5,7 +5,8 @@ class Bola {
         this.vx = 1;
         this.vy = 1;
         this.color = "#fff";
-
+        this.punts = 0;
+        this.vides = 3;
     };
 
     draw(ctx) {
@@ -29,6 +30,10 @@ class Bola {
         let xoc = false;
         let toxtoXoc = false;
         let i = 0;
+
+        if(this.vides <= 0){
+            return;
+        }
 
 
         //Xoc amb els laterals del canvas
@@ -62,10 +67,12 @@ class Bola {
             this.vx = 1;
             this.vy = 1;
             xoc = true;
+            this.vides--;
+            return;
         }
 
         //Xoc amb la pala
-        if (trajectoria.puntB.y + this.radi > joc.pala.posicio.y && trajectoria.puntB.x + this.radi < joc.pala.posicio.x + 65 && trajectoria.puntB.x + this.radi > joc.pala.posicio.x) {
+        if (this.interseccioSegmentRectangle(trajectoria, joc.pala)) {
             exces = (trajectoria.puntB.y - this.radi) / this.vy;
             this.posicio.y = joc.pala.posicio.y - this.radi;
             xoc = true;
@@ -81,30 +88,29 @@ class Bola {
                         this.posicio.y = this.posicio.y - this.radi;
                         xoc = true;
                         this.vy = -this.vy;
-                        console.log("superior");
                         break;
                     case "esquerra":
                         this.posicio.x = this.posicio.x + this.radi;
                         this.vx = -this.vx;
-                        console.log("esquerra");
                         xoc = true;
                         break;
                     case "dreta":
                         this.posicio.x = this.posicio.x - this.radi;
                         this.vx = -this.vx;
-                        console.log("dreta");
                         xoc = true;
                         break;
                     case "inferior":
                         this.posicio.y = this.posicio.y + this.radi;
                         this.vy = -this.vy;
                         xoc = true;
-                        console.log("inferior");
                         break;
                 }
                 toxtoXoc = true;
                 joc.totxosArray[i].tocat = true;
                 joc.totxosArray.splice(i, 1);
+                this.vx += 0.05;
+                this.vy += 0.05;
+                this.punts += 10;
             }
 
             i++;

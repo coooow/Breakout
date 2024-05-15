@@ -31,8 +31,10 @@ class Joc {
     draw() {
         this.clearCanvas();
         this.pala.draw(this.ctx);
-        this.bola.draw(this.ctx);
         this.mur.draw(this.ctx);
+        if(this.bola.vides > 0){
+            this.bola.draw(this.ctx);
+        }
 
     }
     clearCanvas() {
@@ -43,6 +45,9 @@ class Joc {
         this.pala.draw(this.ctx);
         this.bola.draw(this.ctx);
         this.mur.draw(this.ctx);
+
+        $("#punts").append("<p>Punts: " + this.bola.punts + "</p>");
+        $("#vides").append("<p>Vides: " + this.bola.vides + "</p>");
 
         $(document).on("keydown", { joc: this }, function (e) {
             //Moviment de la pala
@@ -63,9 +68,14 @@ class Joc {
     }
 
     update() {
+        var p = document.querySelector("#punts p");
+        var v = document.querySelector("#vides p");
+
         this.bola.update();
         this.pala.update();
         this.draw();
-
+        
+        p.innerHTML = "Punts: " + this.bola.punts;
+        v.innerHTML = "Vides: " + this.bola.vides;
     }
 }
