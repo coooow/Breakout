@@ -30,8 +30,14 @@ class Bola {
         let xoc = false;
         let toxtoXoc = false;
         let i = 0;
+        
+        $(document).on("keypress", {joc: this}, function (e) {
+            if(e.which == 32){
+                joc.estatJoc = true;
+            }
+        });
 
-        if(this.vides <= 0){
+        if(this.vides <= 0 || joc.estatJoc == false){
             return;
         }
 
@@ -68,6 +74,7 @@ class Bola {
             this.vy = 1;
             xoc = true;
             this.vides--;
+            joc.estatJoc = false;
             return;
         }
 
@@ -84,7 +91,6 @@ class Bola {
                 switch (this.interseccioSegmentRectangle(trajectoria, joc.totxosArray[i]).vora) {
                     case "superior":
                         exces = (trajectoria.puntB.y - this.radi) / this.vy;
-                        /* this.posicio.x = trajectoria.puntB.x - exces * this.vx; */
                         this.posicio.y = this.posicio.y - this.radi;
                         xoc = true;
                         this.vy = -this.vy;

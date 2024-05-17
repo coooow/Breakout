@@ -9,6 +9,7 @@ class Joc {
         this.amplada = canvas.width;
         this.alcada = canvas.height;
         this.totxosArray = [];
+        this.estatJoc = true;
         /*
         this.totxoamplada = 22;
         this.totxoalcada = 10; // MIDES DEL TOTXO EN PÍXELS
@@ -32,7 +33,7 @@ class Joc {
         this.clearCanvas();
         this.pala.draw(this.ctx);
         this.mur.draw(this.ctx);
-        if(this.bola.vides > 0){
+        if(this.bola.vides > 0 && this.estatJoc == true){
             this.bola.draw(this.ctx);
         }
 
