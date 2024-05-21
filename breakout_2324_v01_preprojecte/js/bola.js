@@ -2,7 +2,7 @@ class Bola {
     constructor(puntPosicio, radi) {
         this.radi = radi;
         this.posicio = puntPosicio;
-        this.vx = 1;
+        this.vx = Math.random() > 0.5 ? 1 : -1;
         this.vy = 1;
         this.color = "#fff";
         this.punts = 0;
@@ -70,7 +70,7 @@ class Bola {
         if (trajectoria.puntB.y + this.radi > joc.canvas.height) {
             this.posicio.x = joc.canvas.width / 2;
             this.posicio.y = joc.canvas.height / 2;
-            this.vx = 1;
+            this.vx = Math.random() > 0.5 ? 1 : -1;
             this.vy = 1;
             xoc = true;
             this.vides--;
