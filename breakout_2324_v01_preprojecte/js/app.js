@@ -1,6 +1,7 @@
 /*
 * APLICACIÓ
 */
+let lvl = 3;
 
 $(document).ready(function () {
 
@@ -15,8 +16,12 @@ function canviMenu() {
 
     document.querySelector("#menu").style.display = "none";
     document.querySelector("#breakout").style.display = "block";
-    
-    joc = new Joc(myCanvas, ctx);
+
+    if(lvl > 2){
+        return;
+    }
+
+    joc = new Joc(myCanvas, ctx, lvl);
     joc.inicialitza();
     animacio();
 }
@@ -29,17 +34,19 @@ function animacio() {
 function activarHover1(boton) {
     removerHover();
     boton.classList.add("hover-activado1");
+    lvl = 0;
 }
 
 function activarHover2(boton) {
     removerHover();
     boton.classList.add("hover-activado2");
-
+    lvl = 1;
 }
 
 function activarHover3(boton) {
     removerHover();
     boton.classList.add("hover-activado3");
+    lvl = 2;
 }
 
 function removerHover() {

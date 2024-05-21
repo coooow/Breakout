@@ -3,7 +3,7 @@
 */
 
 class Joc {
-    constructor(canvas, ctx) {
+    constructor(canvas, ctx , lvl) {
         this.canvas = canvas;
         this.ctx = ctx;
         this.amplada = canvas.width;
@@ -21,7 +21,7 @@ class Joc {
         this.pala = new Pala(new Punt((this.canvas.width - 60) / 2, this.canvas.height - 15), 60, 4);
         this.mur = new Mur();
         this.mur.defineixNivells();
-        this.totxosArray = this.mur.generaMur(0);
+        this.totxosArray = this.mur.generaMur(lvl);
 
         this.key = {
             LEFT: { code: 37, pressed: false },
