@@ -3,8 +3,11 @@
 body {
     text-align: center;
     background: #333 url(../images/espai.jpg);
-    color: #eee;
 	background-size: cover;
+}
+
+#breakout{
+	color: #eee;
 }
 
 #principal{
@@ -52,4 +55,8 @@ body {
 	background-color:#A3A352;  /* rgb(163,163,82) */
 	height: 200px;
 	border-radius:25px;
+}
+
+#breakout{
+	display: none;
 }

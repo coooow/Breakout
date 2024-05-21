@@ -2,24 +2,31 @@
 * APLICACIÓ
 */
 
-$(document).ready(function() {
+$(document).ready(function () {
 
-    let myCanvas = document.getElementById("joc");
-    let ctx = myCanvas.getContext("2d");
 
-    joc = new Joc(myCanvas,ctx);
-    joc.inicialitza();
-    animacio();
     mostrarRanking();
 
 });
 
-function animacio() {
-    joc.update();
-    requestAnimationFrame(animacio);    
+function canviMenu() {
+    let myCanvas = document.getElementById("joc");
+    let ctx = myCanvas.getContext("2d");
+
+    document.querySelector("#menu").style.display = "none";
+    document.querySelector("#breakout").style.display = "block";
+    
+    joc = new Joc(myCanvas, ctx);
+    joc.inicialitza();
+    animacio();
 }
 
-function activarHover1(boton) { 
+function animacio() {
+    joc.update();
+    requestAnimationFrame(animacio);
+}
+
+function activarHover1(boton) {
     removerHover();
     boton.classList.add("hover-activado1");
 }
@@ -55,7 +62,7 @@ function guardarJugador(nombre) {
     if (!nombre) return;
 
     let jugadores = JSON.parse(localStorage.getItem('jugadores')) || [];
-    jugadores.push({ nombre: nombre, puntuacion: 0 }); 
+    jugadores.push({ nombre: nombre, puntuacion: 0 });
     jugadores = jugadores.slice(0, 5);
     localStorage.setItem('jugadores', JSON.stringify(jugadores));
 }
