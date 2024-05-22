@@ -113,8 +113,6 @@ class Bola {
                 this.vx *= 1.04;
                 this.vy *= 1.04;
                 joc.punts += 10;
-  
-                this.punts += 10;
             }
 
             i++;
