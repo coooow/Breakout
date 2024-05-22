@@ -72,13 +72,20 @@ function guardarJugador(nombre) {
 }
 
 function mostrarRanking() {
-    const rankingList = document.getElementById('ranking-list');
-    rankingList.innerHTML = '';
+    const puntsList = document.getElementById('punts-list');
+    puntsList.innerHTML = '';
+    const jugadorList = document.getElementById('jugadors-list');
+    jugadorList.innerHTML = '';
 
     const jugadores = JSON.parse(localStorage.getItem('jugadores')) || [];
     jugadores.forEach(jugador => {
         const li = document.createElement('li');
         li.textContent = jugador.nombre;
-        rankingList.appendChild(li);
+        jugadorList.appendChild(li);
     });
+    jugadores.forEach(jugador => {
+        const li = document.createElement('li');
+        li.textContent = jugador.puntuacion;
+        puntsList.appendChild(li);
+    })
 }

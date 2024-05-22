@@ -12,6 +12,7 @@ class Joc {
         this.estatJoc = true;
         this.vides = 3;
         this.punts = 0;
+        this.pointMultiplier = 1;
         /*
         this.totxoamplada = 22;
         this.totxoalcada = 10; // MIDES DEL TOTXO EN PÍXELS
@@ -69,6 +70,18 @@ class Joc {
             }
         });
     }
+
+    /*
+    addHearts(){
+        const myDiv = document.getElementById('myDiv');
+        const img = document.createElement('img');
+        img.src = 'path/to/your/image.jpg';
+        img.width = 300;
+        img.height = 200;
+        myDiv.appendChild(img);
+    }
+    */
+
 
     update() {
         var p = document.querySelector("#punts p");

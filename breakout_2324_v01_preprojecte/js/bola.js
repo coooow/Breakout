@@ -48,6 +48,8 @@ class Bola {
             this.posicio.y = this.radi;
             xoc = true;
             this.vy = -this.vy;
+            this.vx *= 1.01;
+            this.vy *= 1.01;
         }
         //Xoc lateral dret 
         if (trajectoria.puntB.x + this.radi > joc.canvas.width) {
@@ -55,6 +57,8 @@ class Bola {
             this.posicio.x = joc.canvas.width - this.radi;
             this.vx = -this.vx;
             xoc = true;
+            this.vx *= 1.01;
+            this.vy *= 1.01;
         }
         //Xoc lateral esquerra 
         if (trajectoria.puntB.x - this.radi < 0) {
@@ -63,6 +67,8 @@ class Bola {
             this.posicio.y = trajectoria.puntB.y - exces * this.vy;
             this.vx = -this.vx;
             xoc = true;
+            this.vx *= 1.01;
+            this.vy *= 1.01;
         }
         //Xoc lateral inferior
         if (trajectoria.puntB.y + this.radi > joc.canvas.height) {
@@ -73,6 +79,7 @@ class Bola {
             xoc = true;
             joc.vides--;
             joc.estatJoc = false;
+            joc.pointMultiplier = 1;
             return;
         }
 
@@ -104,9 +111,10 @@ class Bola {
                 toxtoXoc = true;
                 joc.totxosArray[i].tocat = true;
                 joc.totxosArray.splice(i, 1);
-                this.vx += 0.05;
-                this.vy += 0.05;
-                joc.punts += 10;
+                this.vx *= 1.04;
+                this.vy *= 1.04;
+                joc.punts += 10*joc.pointMultiplier;
+                joc.pointMultiplier += 0.1;
             }
 
             i++;
