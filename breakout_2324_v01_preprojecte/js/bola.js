@@ -94,33 +94,27 @@ class Bola {
             if (this.interseccioSegmentRectangle(trajectoria, joc.totxosArray[i])) {
                 switch (this.interseccioSegmentRectangle(trajectoria, joc.totxosArray[i]).vora) {
                     case "superior":
-                        exces = (trajectoria.puntB.y - this.radi) / this.vy;
-                        this.posicio.y = this.posicio.y - this.radi;
-                        xoc = true;
                         this.vy = -this.vy;
                         break;
                     case "esquerra":
-                        this.posicio.x = this.posicio.x + this.radi;
                         this.vx = -this.vx;
-                        xoc = true;
                         break;
                     case "dreta":
-                        this.posicio.x = this.posicio.x - this.radi;
                         this.vx = -this.vx;
-                        xoc = true;
                         break;
                     case "inferior":
-                        this.posicio.y = this.posicio.y + this.radi;
                         this.vy = -this.vy;
-                        xoc = true;
                         break;
                 }
+                xoc = true;
                 toxtoXoc = true;
                 joc.totxosArray[i].tocat = true;
                 joc.totxosArray.splice(i, 1);
                 this.vx *= 1.04;
                 this.vy *= 1.04;
                 joc.punts += 10;
+  
+                this.punts += 10;
             }
 
             i++;
