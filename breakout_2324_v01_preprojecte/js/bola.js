@@ -7,6 +7,15 @@ class Bola {
         this.color = "#fff";
     };
 
+    rndAngle(){
+        let angle = Math.random() * 2 * Math.PI;
+        while(angle > 2 * Math.PI - 15 * (Math.PI / 180) || angle < Math.PI + 15 * (Math.PI / 180)
+                || angle > 2 * Math.PI / 3 - 15 * (Math.PI / 180) && angle < 2 * Math.PI / 3 + 15 * (Math.PI / 180)){
+            
+            angle = Math.random() * 2 * Math.PI;
+        }
+    }
+
     draw(ctx) {
         ctx.beginPath();
         ctx.fillStyle = this.color;
@@ -14,10 +23,12 @@ class Bola {
         ctx.fill();
         ctx.closePath();
     }
+
     mou(x, y) {
         this.posicio.x += x;
         this.posicio.y += y;
     }
+
     update() {
 
         let puntActual = this.posicio;
