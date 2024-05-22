@@ -70,6 +70,18 @@ class Joc {
         });
     }
 
+    /*
+    addHearts(){
+        const myDiv = document.getElementById('myDiv');
+        const img = document.createElement('img');
+        img.src = 'path/to/your/image.jpg';
+        img.width = 300;
+        img.height = 200;
+        myDiv.appendChild(img);
+    }
+    */
+
+
     update() {
         var p = document.querySelector("#punts p");
         var v = document.querySelector("#vides p");
