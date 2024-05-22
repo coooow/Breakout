@@ -10,6 +10,8 @@ class Joc {
         this.alcada = canvas.height;
         this.totxosArray = [];
         this.estatJoc = true;
+        this.vides = 3;
+        this.punts = 0;
         /*
         this.totxoamplada = 22;
         this.totxoalcada = 10; // MIDES DEL TOTXO EN PÍXELS
@@ -33,7 +35,7 @@ class Joc {
         this.clearCanvas();
         this.pala.draw(this.ctx);
         this.mur.draw(this.ctx);
-        if(this.bola.vides > 0 && this.estatJoc == true){
+        if(this.vides > 0 && this.estatJoc == true){
             this.bola.draw(this.ctx);
         }
 
@@ -47,8 +49,8 @@ class Joc {
         this.bola.draw(this.ctx);
         this.mur.draw(this.ctx);
 
-        $("#punts").append("<p>Punts: " + this.bola.punts + "</p>");
-        $("#vides").append("<p>Vides: " + this.bola.vides + "</p>");
+        $("#punts").append("<p>Punts: " + this.punts + "</p>");
+        $("#vides").append("<p>Vides: " + this.vides + "</p>");
 
         $(document).on("keydown", { joc: this }, function (e) {
             //Moviment de la pala
@@ -76,7 +78,7 @@ class Joc {
         this.pala.update();
         this.draw();
         
-        p.innerHTML = "Punts: " + this.bola.punts;
-        v.innerHTML = "Vides: " + this.bola.vides;
+        p.innerHTML = "Punts: " + this.punts;
+        v.innerHTML = "Vides: " + this.vides;
     }
 }

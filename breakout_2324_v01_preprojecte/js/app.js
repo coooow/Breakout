@@ -1,13 +1,10 @@
 /*
-* APLICACIÓ
+* APLICACIÓ && MENU
 */
 let lvl = 3;
 
 $(document).ready(function () {
-
-
     mostrarRanking();
-
 });
 
 function canviMenu() {

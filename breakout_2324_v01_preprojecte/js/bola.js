@@ -5,8 +5,6 @@ class Bola {
         this.vx = Math.random() > 0.5 ? 1 : -1;
         this.vy = 1;
         this.color = "#fff";
-        this.punts = 0;
-        this.vides = 3;
     };
 
     draw(ctx) {
@@ -37,7 +35,7 @@ class Bola {
             }
         });
 
-        if(this.vides <= 0 || joc.estatJoc == false){
+        if(joc.vides <= 0 || joc.estatJoc == false){
             return;
         }
 
@@ -73,7 +71,7 @@ class Bola {
             this.vx = Math.random() > 0.5 ? 1 : -1;
             this.vy = 1;
             xoc = true;
-            this.vides--;
+            joc.vides--;
             joc.estatJoc = false;
             return;
         }
@@ -116,7 +114,7 @@ class Bola {
                 joc.totxosArray.splice(i, 1);
                 this.vx += 0.05;
                 this.vy += 0.05;
-                this.punts += 10;
+                joc.punts += 10;
             }
 
             i++;

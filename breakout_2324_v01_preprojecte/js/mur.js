@@ -2,6 +2,8 @@
 * CLASSE MUR
 */
 
+const separacioVertical = 2, separacioHoritzontal = 14, separacioCanvasHor = 7, separacioCanvasVer = 5;
+
 class Mur {
     constructor() {
         this.totxosArray = [];
@@ -16,7 +18,7 @@ class Mur {
         this.totxosArray = [];      //buida la Array per si es necessités tornar a usar el mètode
         for (let i = 0; i < this.nivells[lvl].totxos.length; i++) {
             for (let j = 0; j < this.nivells[lvl].totxos[i].length; j++) {
-                const puntPosicio = { x: j*10+7 + 14*j, y: i*10+10 + 5*i};
+                const puntPosicio = { x: j*10+separacioCanvasHor + separacioHoritzontal*j, y: i*10+separacioCanvasVer + separacioVertical*i};
                 const amplada = 22;     //← i ↓ es poden cambiar segons gust
                 const alcada = 10;
                 
