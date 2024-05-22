@@ -179,9 +179,8 @@ body {
         right: 15%;   
 }
 
-#ranking-list {
-    margin-left: 35%;
-    list-style-type: none;
+#ranking-list{
+    /* margin-left: 35%; */
     padding: 0;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     flex-direction: column;
@@ -194,6 +193,16 @@ body {
     /* Contorno blanco */
 }
 
+#punts-list{
+    list-style-type: none;
+    margin-left: 300%;
+}
+
+#jugadors-list{
+    list-style-type: none;
+    margin-left: 400%;
+}
+
 #ranking-list li {
-    margin: 5px 0;  
+    margin: 7px 0;  
 }

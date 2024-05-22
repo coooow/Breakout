@@ -79,6 +79,7 @@ class Bola {
             xoc = true;
             joc.vides--;
             joc.estatJoc = false;
+            joc.pointMultiplier = 1;
             return;
         }
 
@@ -110,9 +111,16 @@ class Bola {
                 toxtoXoc = true;
                 joc.totxosArray[i].tocat = true;
                 joc.totxosArray.splice(i, 1);
+<<<<<<< Updated upstream
                 this.vx *= 1.04;
                 this.vy *= 1.04;
                 joc.punts += 10;
+=======
+                this.vx += 0.05;
+                this.vy += 0.05;
+                joc.punts += 10*joc.pointMultiplier;
+                joc.pointMultiplier += 0.1;
+>>>>>>> Stashed changes
             }
 
             i++;
