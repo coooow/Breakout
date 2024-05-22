@@ -112,9 +112,14 @@ class Bola {
                 toxtoXoc = true;
                 joc.totxosArray[i].tocat = true;
                 joc.totxosArray.splice(i, 1);
+<<<<<<< Updated upstream
                 this.vx += 0.05;
                 this.vy += 0.05;
                 joc.punts += 10;
+=======
+  
+                this.punts += 10;
+>>>>>>> Stashed changes
             }
 
             i++;
