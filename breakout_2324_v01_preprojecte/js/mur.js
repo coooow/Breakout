@@ -32,9 +32,7 @@ class Mur {
         return this.totxosArray;
     }
 
-    /*
-    Segurament malament però ioquese
-    */
+  
     draw(ctx) {
         for (let i = 0; i < this.totxosArray.length; i++){
             this.totxosArray[i].draw(ctx);
