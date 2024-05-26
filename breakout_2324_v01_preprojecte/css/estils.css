@@ -73,3 +73,27 @@ body {
 	width: 70px;
 	border-radius: 7px;
 }
+
+#winner{
+	width: 300px;
+	height: 200px;
+	position: absolute;
+	background-color: lightgreen;
+	display: none;
+	margin: 330px;
+	margin-top: -300px;
+}
+
+#loser{
+	width: 300px;
+	height: 200px;
+	position: absolute;
+	background-color: darkred;
+	display: none;
+	margin: 330px;
+	margin-top: -300px;
+}
+
+#loser p, #winner p{
+	margin-top: 20%;
+}

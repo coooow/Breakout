@@ -14,13 +14,13 @@ class Pala {
 
     update() {
         if (joc.key.LEFT.pressed) {
-            if (this.posicio.x <= 0) {
+            if (this.posicio.x <= 0 || joc.estatJoc == false) {
                 return;
             }
             this.mou(-5, 0);
         }
         if (joc.key.RIGHT.pressed) {
-            if (this.posicio.x + 65 > joc.amplada) { //dreta
+            if (this.posicio.x + 65 > joc.amplada || joc.estatJoc == false) { //dreta
                 return;
             }
             this.mou(5, 0);

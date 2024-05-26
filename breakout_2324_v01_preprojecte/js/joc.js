@@ -36,7 +36,13 @@ class Joc {
         this.clearCanvas();
         this.pala.draw(this.ctx);
         this.mur.draw(this.ctx);
-        if(this.vides > 0 && this.estatJoc == true){
+        if(this.totxosArray.length == 0){ //win
+            document.querySelector("#winner").style.display = "block";
+            this.estatJoc = false;
+        } else if (this.vides == 0){ //lose
+            document.querySelector("#loser").style.display = "block";
+            this.estatJoc = false;
+        } else if (this.vides > 0 && this.estatJoc == true){ 
             this.bola.draw(this.ctx);
         }
 

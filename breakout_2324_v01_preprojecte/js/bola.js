@@ -50,7 +50,6 @@ class Bola {
             return;
         }
 
-
         //Xoc amb els laterals del canvas
         //Xoc lateral superior
         if (trajectoria.puntB.y - this.radi < 0) {
@@ -96,8 +95,6 @@ class Bola {
 
         //Xoc amb la pala
         if (this.interseccioSegmentRectangle(trajectoria, joc.pala)) {
-            exces = (trajectoria.puntB.y - this.radi) / this.vy;
-            this.posicio.y = joc.pala.posicio.y - this.radi;
             xoc = true;
             this.vy = -this.vy;
         }
