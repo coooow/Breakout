@@ -10,17 +10,25 @@ $(document).ready(function () {
 function canviMenu() {
     let myCanvas = document.getElementById("joc");
     let ctx = myCanvas.getContext("2d");
+    const playerName = document.getElementById('player-name').value;
 
-    document.querySelector("#menu").style.display = "none";
-    document.querySelector("#breakout").style.display = "block";
+    if (document.querySelector("#menu").style.display == "none") { //si estem al joc i donem
+        document.querySelector("#menu").style.display = "block";
+        document.querySelector("#breakout").style.display = "none";
+        guardarYMostrarRanking(playerName);
 
-    if(lvl > 2){
-        return;
+    } else { //si estem al menu i donem
+        if (lvl > 2 || playerName == '') {
+            return;
+        }
+
+        document.querySelector("#menu").style.display = "none";
+        document.querySelector("#breakout").style.display = "block";
+
+        joc = new Joc(myCanvas, ctx, lvl);
+        joc.inicialitza();
+        animacio();
     }
-
-    joc = new Joc(myCanvas, ctx, lvl);
-    joc.inicialitza();
-    animacio();
 }
 
 function animacio() {
@@ -53,8 +61,7 @@ function removerHover() {
     });
 }
 
-function guardarYMostrarRanking() {
-    const playerName = document.getElementById('player-name').value;
+function guardarYMostrarRanking(playerName) {
     if (playerName.trim() !== "") {
         guardarJugador(playerName);
         mostrarRanking();
@@ -66,7 +73,7 @@ function guardarJugador(nombre) {
     if (!nombre) return;
 
     let jugadores = JSON.parse(localStorage.getItem('jugadores')) || [];
-    jugadores.push({ nombre: nombre, puntuacion: 0 });
+    jugadores.push({ nombre: nombre, puntuacion: joc.punts });
     jugadores = jugadores.slice(0, 5);
     localStorage.setItem('jugadores', JSON.stringify(jugadores));
 }

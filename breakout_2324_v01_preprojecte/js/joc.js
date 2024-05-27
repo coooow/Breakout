@@ -39,6 +39,7 @@ class Joc {
         if(this.totxosArray.length == 0){ //win
             document.querySelector("#winner").style.display = "block";
             this.estatJoc = false;
+            canviMenu();
         } else if (this.vides == 0){ //lose
             document.querySelector("#loser").style.display = "block";
             this.estatJoc = false;
@@ -99,5 +100,10 @@ class Joc {
         
         p.innerHTML = "Punts: " + this.punts;
         v.innerHTML = "Vides: " + this.vides;
+    }
+
+    tornarMenu(){
+        document.querySelector("#menu").style.display = "block";
+        document.querySelector("#breakout").style.display = "none";
     }
 }
