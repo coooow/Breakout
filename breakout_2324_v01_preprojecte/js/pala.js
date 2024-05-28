@@ -8,7 +8,7 @@ class Pala {
         this.alcada = alcada;
         this.posicio = puntPosicio;
         this.vy = 2;
-        this.vx = 2;                                                     // velocitat = 10 píxels per fotograma
+        this.vx = 5;                                                     // velocitat = 10 píxels per fotograma
         this.color = "#D30";
     }
 
@@ -17,13 +17,13 @@ class Pala {
             if (this.posicio.x <= 0 || joc.estatJoc == false) {
                 return;
             }
-            this.mou(-5, 0);
+            this.mou(-this.vx, 0);
         }
         if (joc.key.RIGHT.pressed) {
             if (this.posicio.x + 65 > joc.amplada || joc.estatJoc == false) { //dreta
                 return;
             }
-            this.mou(5, 0);
+            this.mou(this.vx, 0);
         }
     }
 

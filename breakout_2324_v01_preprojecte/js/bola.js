@@ -94,6 +94,7 @@ class Bola {
 
         //Xoc amb la pala
         if (this.interseccioSegmentRectangle(trajectoria, joc.pala)) {
+            this.posicio.y = joc.pala.posicio.y - this.radi;
             xoc = true;
             this.vy = -this.vy;
         }

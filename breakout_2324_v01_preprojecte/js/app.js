@@ -2,6 +2,7 @@
 * APLICACIÓ && MENU
 */
 let lvl = 3;
+let first = false;
 
 $(document).ready(function () {
     mostrarRanking();
@@ -25,8 +26,12 @@ function canviMenu() {
         document.querySelector("#menu").style.display = "none";
         document.querySelector("#breakout").style.display = "block";
 
-        joc = new Joc(myCanvas, ctx, lvl);
-        joc.inicialitza();
+        if(!first){
+            joc = new Joc(myCanvas, ctx);
+            joc.inicialitza(lvl, first);
+            first = true;
+        }
+        joc.inicialitza(lvl, first);
         animacio();
     }
 }

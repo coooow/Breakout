@@ -3,40 +3,33 @@
 */
 
 class Joc {
-    constructor(canvas, ctx , lvl) {
+    constructor(canvas, ctx) {
         this.canvas = canvas;
         this.ctx = ctx;
         this.amplada = canvas.width;
         this.alcada = canvas.height;
         this.totxosArray = [];
-        this.estatJoc = true;
-        this.vides = 3;
-        this.punts = 0;
-        this.pointMultiplier = 1;
+        this.estatJoc = false;
+        this.vides;
+        this.punts;
+        this.pointMultiplier;
+        this.lvl;
+        this.key;
         /*
         this.totxoamplada = 22;
         this.totxoalcada = 10; // MIDES DEL TOTXO EN PÍXELS
         this.totxocolor = 20;
         */
 
-
-        this.bola = new Bola(new Punt(this.canvas.width / 2, this.canvas.height / 2), 3);
-        this.pala = new Pala(new Punt((this.canvas.width - 60) / 2, this.canvas.height - 15), 60, 4);
-        this.mur = new Mur();
-        this.mur.defineixNivells();
-        this.totxosArray = this.mur.generaMur(lvl);
-
-        this.key = {
-            LEFT: { code: 37, pressed: false },
-            RIGHT: { code: 39, pressed: false }
-        };
+        $("#punts").append("<p>Punts: " + 0 + "</p>");
+        $("#vides").append("<p>Vides: " + 3 + "</p>");
     }
 
     draw() {
         this.clearCanvas();
         this.pala.draw(this.ctx);
         this.mur.draw(this.ctx);
-        if(this.totxosArray.length == 0){ //win
+        if(this.totxosArray.length == 0 && this.estatJoc == true){ //win
             document.querySelector("#winner").style.display = "block";
             this.estatJoc = false;
             canviMenu();
@@ -52,27 +45,48 @@ class Joc {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
     }
 
-    inicialitza() {
+    inicialitza(lvl, first) {
+        this.vides = 3;
+        this.punts = 0;
+        this.pointMultiplier = 1;
+
+        this.bola = new Bola(new Punt(this.canvas.width / 2, this.canvas.height / 2), 3);
+        if(!first){
+            this.pala = new Pala(new Punt((this.canvas.width - 60) / 2, this.canvas.height - 15), 60, 4);
+        }
+        this.mur = new Mur();
+        this.mur.defineixNivells();
+        this.totxosArray = this.mur.generaMur(lvl);
+
+        document.querySelector("#winner").style.display = "none";
+        document.querySelector("#loser").style.display = "none";
+
+        this.bola.vy = 1;
+        this.bola.vx = Math.random() > 0.5 ? 1 : -1;
+        this.pala.posicio = new Punt((this.canvas.width - 60) / 2, this.canvas.height - 15);
+
+        this.key = {
+            LEFT: { code: 37, pressed: false },
+            RIGHT: { code: 39, pressed: false }
+        };
+
         this.pala.draw(this.ctx);
         this.bola.draw(this.ctx);
         this.mur.draw(this.ctx);
 
-        $("#punts").append("<p>Punts: " + this.punts + "</p>");
-        $("#vides").append("<p>Vides: " + this.vides + "</p>");
-
         $(document).on("keydown", { joc: this }, function (e) {
             //Moviment de la pala
-            if (e.which == 39) {
+            if (e.which == joc.key.RIGHT.code) {
                 joc.key.RIGHT.pressed = true;
-            } else if (e.which == 37) { //esquerra
+            } else if (e.which == joc.key.LEFT.code) { //esquerra
                 joc.key.LEFT.pressed = true;
             }
         });
         $(document).on("keyup", { joc: this }, function (e) {
             //Moviment de la pala
-            if (e.which == 39) {
+            if (e.which == joc.key.RIGHT.code) {
                 joc.key.RIGHT.pressed = false;
-            } else if (e.which == 37) { //esquerra
+            } else if (e.which == joc.key.LEFT.code) { //esquerra
                 joc.key.LEFT.pressed = false;
             }
         });
@@ -112,10 +126,5 @@ class Joc {
             img.style.height = '20px'; // Optional: Set height for the image
             v.appendChild(img);
         }
-    }
-
-    tornarMenu(){
-        document.querySelector("#menu").style.display = "block";
-        document.querySelector("#breakout").style.display = "none";
     }
 }
