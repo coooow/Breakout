@@ -78,28 +78,40 @@ class Joc {
         });
     }
 
-    /*
+    
     addHearts(){
-        const myDiv = document.getElementById('myDiv');
+        const myDiv = document.getElementById('vides');
         const img = document.createElement('img');
         img.src = 'path/to/your/image.jpg';
         img.width = 300;
         img.height = 200;
         myDiv.appendChild(img);
     }
-    */
+    
 
 
     update() {
         var p = document.querySelector("#punts p");
         var v = document.querySelector("#vides p");
-
+    
         this.bola.update();
         this.pala.update();
         this.draw();
         
         p.innerHTML = "Punts: " + this.punts;
-        v.innerHTML = "Vides: " + this.vides;
+    
+        // Clear the existing lives display
+        v.innerHTML = '';
+    
+        // Add the correct number of life images
+        for (let i = 0; i < this.vides; i++) {
+            let img = document.createElement('img');
+            img.src = '.images/corasonDeMelon.png';  // Path to your life image
+            img.alt = '♥';      // Alternative text for the image
+            img.style.width = '20px'; // Optional: Set width for the image
+            img.style.height = '20px'; // Optional: Set height for the image
+            v.appendChild(img);
+        }
     }
 
     tornarMenu(){

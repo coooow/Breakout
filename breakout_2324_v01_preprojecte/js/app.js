@@ -39,7 +39,7 @@ function animacio() {
 function activarHover1(boton) {
     removerHover();
     boton.classList.add("hover-activado1");
-    lvl = 0;
+    lvl = 2;
 }
 
 function activarHover2(boton) {
@@ -51,7 +51,7 @@ function activarHover2(boton) {
 function activarHover3(boton) {
     removerHover();
     boton.classList.add("hover-activado3");
-    lvl = 2;
+    lvl = 0;
 }
 
 function removerHover() {
