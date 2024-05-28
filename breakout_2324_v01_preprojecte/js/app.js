@@ -30,9 +30,9 @@ function canviMenu() {
             joc = new Joc(myCanvas, ctx);
             joc.inicialitza(lvl, first);
             first = true;
+            animacio();
         }
         joc.inicialitza(lvl, first);
-        animacio();
     }
 }
 

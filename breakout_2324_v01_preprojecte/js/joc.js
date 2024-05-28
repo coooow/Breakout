@@ -120,7 +120,7 @@ class Joc {
         // Add the correct number of life images
         for (let i = 0; i < this.vides; i++) {
             let img = document.createElement('img');
-            img.src = '.images/corasonDeMelon.png';  // Path to your life image
+            img.src = '..\breakout_2324_v01_preprojecte\images\corasonDeMelon.png';  // Path to your life image
             img.alt = '♥';      // Alternative text for the image
             img.style.width = '20px'; // Optional: Set width for the image
             img.style.height = '20px'; // Optional: Set height for the image
