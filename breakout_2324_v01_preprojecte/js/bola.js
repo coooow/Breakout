@@ -8,11 +8,9 @@ class Bola {
     };
 
     rndAngle(){
-        let angle = Math.random() * 2 * Math.PI;
-        while(!(angle > 2 * Math.PI - 15 * (Math.PI / 180) || angle < Math.PI + 15 * (Math.PI / 180)
-                || angle > 2 * Math.PI / 3 - 15 * (Math.PI / 180) && angle < 2 * Math.PI / 3 + 15 * (Math.PI / 180))){
-            
-            angle = Math.random() * 2 * Math.PI;
+        let angle = Math.random() * Math.PI;
+        while(angle < 0.35 || angle > Math.PI - 0.35 || angle > Math.PI / 2 - 0.2 && angle < Math.PI / 2 + 0.2){
+            angle = Math.random() * Math.PI;
         }
         return angle;
     }
@@ -59,8 +57,8 @@ class Bola {
             this.posicio.y = this.radi;
             xoc = true;
             this.vy = -this.vy;
-            this.vx *= 1.01;
-            this.vy *= 1.01;
+            this.vx *= 1.03;
+            this.vy *= 1.03;
         }
         //Xoc lateral dret 
         if (trajectoria.puntB.x + this.radi > joc.canvas.width) {
@@ -68,8 +66,8 @@ class Bola {
             this.posicio.x = joc.canvas.width - this.radi;
             this.vx = -this.vx;
             xoc = true;
-            this.vx *= 1.01;
-            this.vy *= 1.01;
+            this.vx *= 1.02;
+            this.vy *= 1.02;
         }
         //Xoc lateral esquerra 
         if (trajectoria.puntB.x - this.radi < 0) {
@@ -78,15 +76,15 @@ class Bola {
             this.posicio.y = trajectoria.puntB.y - exces * this.vy;
             this.vx = -this.vx;
             xoc = true;
-            this.vx *= 1.01;
-            this.vy *= 1.01;
+            this.vx *= 1.02;
+            this.vy *= 1.02;
         }
         //Xoc lateral inferior
         if (trajectoria.puntB.y + this.radi > joc.canvas.height) {
             this.posicio.x = joc.canvas.width / 2;
             this.posicio.y = joc.canvas.height / 2;
-            this.vx = Math.random() > 0.5 ? 1 : -1;
-            this.vy = 1;
+            this.vx = Math.cos(this.rndAngle());
+            this.vy = Math.sin(this.rndAngle());
             xoc = true;
             joc.vides--;
             joc.estatJoc = false;
