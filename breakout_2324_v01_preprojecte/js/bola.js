@@ -2,18 +2,19 @@ class Bola {
     constructor(puntPosicio, radi) {
         this.radi = radi;
         this.posicio = puntPosicio;
-        this.vx = Math.random() > 0.5 ? 1 : -1;
-        this.vy = 1;
+        this.vx = Math.cos(this.rndAngle());
+        this.vy = Math.sin(this.rndAngle());
         this.color = "#fff";
     };
 
     rndAngle(){
         let angle = Math.random() * 2 * Math.PI;
-        while(angle > 2 * Math.PI - 15 * (Math.PI / 180) || angle < Math.PI + 15 * (Math.PI / 180)
-                || angle > 2 * Math.PI / 3 - 15 * (Math.PI / 180) && angle < 2 * Math.PI / 3 + 15 * (Math.PI / 180)){
+        while(!(angle > 2 * Math.PI - 15 * (Math.PI / 180) || angle < Math.PI + 15 * (Math.PI / 180)
+                || angle > 2 * Math.PI / 3 - 15 * (Math.PI / 180) && angle < 2 * Math.PI / 3 + 15 * (Math.PI / 180))){
             
             angle = Math.random() * 2 * Math.PI;
         }
+        return angle;
     }
 
     draw(ctx) {
