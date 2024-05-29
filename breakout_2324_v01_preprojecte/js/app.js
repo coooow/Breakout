@@ -78,15 +78,11 @@ function guardarYMostrarRanking(playerName) {
 function guardarJugador(nombre) {
     if (!nombre) return;
 
-    let jugadores = JSON.parse(localStorage.getItem('jugadores')) || [];
+    var jugadores = JSON.parse(localStorage.getItem('jugadores')) || [];
     resetStorage();
     jugadores.push({ nombre: nombre, puntuacion: joc.punts });
-    jugadores.sort((a, b) => {
-        const aValue = JSON.stringify(Object.values(a).sort());
-        const bValue = JSON.stringify(Object.values(b).sort());
-        if (aValue < bValue) return -1;
-        if (aValue > bValue) return 1;
-        return 0;
+    jugadores.sort(function(a, b){
+        return b.puntuacion - a.puntuacion;
     });
     jugadores = jugadores.slice(0, 5);
     localStorage.setItem('jugadores', JSON.stringify(jugadores));
