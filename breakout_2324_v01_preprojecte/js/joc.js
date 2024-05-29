@@ -128,3 +128,18 @@ class Joc {
         }
     }
 }
+
+
+window.onload = function() {
+    var popup = document.getElementById("popup");
+    popup.style.display = "flex";
+  };
+  
+  document.addEventListener("keydown", function(event) {
+    if (event.code === "Space") { 
+      var popup = document.getElementById("popup");
+      popup.style.display = "none"; 
+      game.estatJoc = true; 
+      game.draw(); 
+    }
+  });
