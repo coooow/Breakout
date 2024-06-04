@@ -30,10 +30,10 @@ class Joc {
         this.pala.draw(this.ctx);
         this.mur.draw(this.ctx);
         if(this.totxosArray.length == 0 && this.estatJoc == true){ //win
-            document.querySelector("#winner").style.display = "block";
+            document.querySelector(".winner").style.display = "flex";
             this.estatJoc = false;
         } else if (this.vides == 0){ //lose
-            document.querySelector("#loser").style.display = "block";
+            document.querySelector(".loser").style.display = "flex";
             this.estatJoc = false;
         } else if (this.vides > 0 && this.estatJoc == true){ 
             this.bola.draw(this.ctx);
@@ -59,8 +59,8 @@ class Joc {
         this.mur.defineixNivells();
         this.totxosArray = this.mur.generaMur(lvl);
 
-        document.querySelector("#winner").style.display = "none";
-        document.querySelector("#loser").style.display = "none";
+        document.querySelector(".winner").style.display = "none";
+        document.querySelector(".loser").style.display = "none";
 
         this.bola.vy = 1;
         this.bola.vx = Math.random() > 0.5 ? 1 : -1;
