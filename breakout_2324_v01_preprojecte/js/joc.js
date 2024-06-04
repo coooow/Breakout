@@ -29,7 +29,11 @@ class Joc {
         this.clearCanvas();
         this.pala.draw(this.ctx);
         this.mur.draw(this.ctx);
-        if(this.totxosArray.length == 0 && this.estatJoc == true){ //win
+
+        if(this.totxosArray.length == 0 && this.estatJoc == true || document.querySelector(".winner").style.display == "flex"){ //win
+            if(this.lvl == 0){
+                document.querySelector("#btnNext").style.display = "none";
+            }
             document.querySelector(".winner").style.display = "flex";
             this.estatJoc = false;
         } else if (this.vides == 0){ //lose
@@ -38,6 +42,7 @@ class Joc {
         } else if (this.vides > 0 && this.estatJoc == true){ 
             this.bola.draw(this.ctx);
         } else if (this.estatJoc == false){ //si acabes de morir
+            console.log("guh");
             document.querySelector(".popup").style.display = "flex";
         } else { 
             document.querySelector(".popup").style.display = "none";
@@ -52,12 +57,13 @@ class Joc {
         this.vides = 3;
         this.punts = 0;
         this.pointMultiplier = 1;
+        this.lvl = lvl;
 
         this.bola = new Bola(new Punt(this.canvas.width / 2, this.canvas.height / 2), 3);
         this.pala = new Pala(new Punt((this.canvas.width - 60) / 2, this.canvas.height - 15), 60, 4);
         this.mur = new Mur();
         this.mur.defineixNivells();
-        this.totxosArray = this.mur.generaMur(lvl);
+        this.totxosArray = this.mur.generaMur(this.lvl);
 
         document.querySelector(".winner").style.display = "none";
         document.querySelector(".loser").style.display = "none";
@@ -140,7 +146,5 @@ window.onload = function() {
     if (event.code === "Space") { 
       var popup = document.getElementById("popup");
       popup.style.display = "none"; 
-      game.estatJoc = true; 
-      game.draw(); 
     }
   });

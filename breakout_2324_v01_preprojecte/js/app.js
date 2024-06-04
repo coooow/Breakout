@@ -32,9 +32,18 @@ function canviMenu() {
             first = true;
             animacio();
         }
-        joc.inicialitza(lvl, first);
+        joc.inicialitza(lvl);
         removerHover();
     }
+}
+
+function repetirNivell(){
+    joc.inicialitza(lvl);
+}
+
+function nextNivell(){
+    lvl = lvl - 1;
+    joc.inicialitza(lvl);
 }
 
 function animacio() {
