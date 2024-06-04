@@ -15,6 +15,7 @@ class Joc {
         this.pointMultiplier;
         this.lvl;
         this.key;
+        this.punts = 0;
         /*
         this.totxoamplada = 22;
         this.totxoalcada = 10; // MIDES DEL TOTXO EN PÍXELS
@@ -53,9 +54,11 @@ class Joc {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
     }
 
-    inicialitza(lvl) {
+    inicialitza(lvl, first) {
         this.vides = 3;
-        this.punts = 0;
+        if(!first){
+            this.punts = 0;
+        } 
         this.pointMultiplier = 1;
         this.lvl = lvl;
 
