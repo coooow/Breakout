@@ -32,12 +32,15 @@ class Joc {
         if(this.totxosArray.length == 0 && this.estatJoc == true){ //win
             document.querySelector("#winner").style.display = "block";
             this.estatJoc = false;
-            canviMenu();
         } else if (this.vides == 0){ //lose
             document.querySelector("#loser").style.display = "block";
             this.estatJoc = false;
         } else if (this.vides > 0 && this.estatJoc == true){ 
             this.bola.draw(this.ctx);
+        } else if (this.estatJoc == false){ //si acabes de morir
+            document.querySelector(".popup").style.display = "flex";
+        } else { 
+            document.querySelector(".popup").style.display = "none";
         }
 
     }
@@ -45,15 +48,13 @@ class Joc {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
     }
 
-    inicialitza(lvl, first) {
+    inicialitza(lvl) {
         this.vides = 3;
         this.punts = 0;
         this.pointMultiplier = 1;
 
         this.bola = new Bola(new Punt(this.canvas.width / 2, this.canvas.height / 2), 3);
-        if(!first){
-            this.pala = new Pala(new Punt((this.canvas.width - 60) / 2, this.canvas.height - 15), 60, 4);
-        }
+        this.pala = new Pala(new Punt((this.canvas.width - 60) / 2, this.canvas.height - 15), 60, 4);
         this.mur = new Mur();
         this.mur.defineixNivells();
         this.totxosArray = this.mur.generaMur(lvl);
