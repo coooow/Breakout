@@ -39,6 +39,7 @@ class Bola {
         let xoc = false;
         let toxtoXoc = false;
         let i = 0;
+        var knock = new Audio('...sounds/632328__audacitier__knock-3.mp3');
         
         $(document).on("keypress", {joc: this}, function (e) {
             if(e.which == 32){
@@ -60,6 +61,7 @@ class Bola {
             this.vy = -this.vy;
             this.vx *= 1.03;
             this.vy *= 1.03;
+            knock.play();
         }
         //Xoc lateral dret 
         if (trajectoria.puntB.x + this.radi > joc.canvas.width) {
@@ -69,6 +71,7 @@ class Bola {
             xoc = true;
             this.vx *= 1.02;
             this.vy *= 1.02;
+            knock.play();
         }
         //Xoc lateral esquerra 
         if (trajectoria.puntB.x - this.radi < 0) {
@@ -79,6 +82,7 @@ class Bola {
             xoc = true;
             this.vx *= 1.02;
             this.vy *= 1.02;
+            knock.play();
         }
         //Xoc lateral inferior
         if (trajectoria.puntB.y + this.radi > joc.canvas.height) {
@@ -124,7 +128,8 @@ class Bola {
                 this.vx *= 1.04;
                 this.vy *= 1.04;
                 joc.punts += 10*joc.pointMultiplier;
-                joc.pointMultiplier += 0.1;
+                joc.pointMultiplier += 0.1; 
+                knock.play();
             }
 
             i++;
