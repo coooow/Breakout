@@ -11,6 +11,10 @@ body {
     /* Utiliza toda la altura de la ventana */
 }
 
+#menu{
+    width: 100%;
+}
+
 .button-container {
     display: flex;
     flex-direction: column;
@@ -172,11 +176,11 @@ body {
 
 #ranking {
         position: fixed;
-        height: 350px;
+        height: 250px;
         background: rgba(255, 255, 255, 0.8);
-        width: 200px;
-        bottom: 27%;     
-        right: 15%;   
+        width: max-content;
+        bottom: 250px;     
+        right: 220px;   
 }
 
 #ranking-list{
@@ -195,14 +199,15 @@ body {
 
 #punts-list{
     list-style-type: none;
-    margin-left: 300%;
+    margin-left: 20px;
 }
 
 #jugadors-list{
     list-style-type: none;
-    margin-left: 400%;
+    margin-left: 100px;
+    margin-right: 20px;
 }
 
 #ranking-list li {
-    margin: 7px 0;  
+    margin: 3px 0;  
 }

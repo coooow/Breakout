@@ -2,7 +2,8 @@
 * APLICACIÓ && MENU
 */
 let lvl = 3;
-let first = false;
+let firstPunts = false;
+let firstJoc = false;
 
 $(document).ready(function () {
     mostrarRanking();
@@ -23,18 +24,31 @@ function canviMenu() {
             return;
         }
 
+        firstPunts = false;
+
         document.querySelector("#menu").style.display = "none";
         document.querySelector("#breakout").style.display = "block";
 
-        if (!first) {
+        if (!firstJoc) {
             joc = new Joc(myCanvas, ctx);
-            joc.inicialitza(lvl);
-            first = true;
+            joc.inicialitza(lvl, firstPunts);
+            firstJoc = true;
             animacio();
         }
-        joc.inicialitza(lvl, first);
+        joc.inicialitza(lvl, firstPunts);
         removerHover();
     }
+}
+
+function repetirNivell(){
+    firstPunts = false;
+    joc.inicialitza(lvl, firstPunts);
+}
+
+function nextNivell(){
+    firstPunts = true;
+    lvl = lvl - 1;
+    joc.inicialitza(lvl, firstPunts);
 }
 
 function animacio() {

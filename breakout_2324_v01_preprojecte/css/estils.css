@@ -74,7 +74,7 @@ body {
 	border-radius: 7px;
 }
 
-.winer{
+.winner{
 	width: 300px;
 	display: none;
 	position: fixed;
@@ -87,7 +87,7 @@ body {
 	align-items: center;
 	justify-content: center;
 }
-.winer-content {
+.winner-content {
 	color: rgb(14, 13, 13);
 	background-color: #ffffff75;
 	padding: 20px;
