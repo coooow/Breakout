@@ -28,7 +28,7 @@ function canviMenu() {
 
         if (!first) {
             joc = new Joc(myCanvas, ctx);
-            joc.inicialitza(lvl, first);
+            joc.inicialitza(lvl);
             first = true;
             animacio();
         }
