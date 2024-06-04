@@ -2,8 +2,9 @@ class Bola {
     constructor(puntPosicio, radi) {
         this.radi = radi;
         this.posicio = puntPosicio;
-        this.vx = Math.cos(this.rndAngle());
-        this.vy = Math.sin(this.rndAngle());
+        let rndangle = this.rndAngle();
+        this.vx = 1.5 * Math.cos(rndangle);
+        this.vy = 1.5 * Math.sin(rndangle);
         this.color = "#fff";
     };
 
@@ -83,8 +84,9 @@ class Bola {
         if (trajectoria.puntB.y + this.radi > joc.canvas.height) {
             this.posicio.x = joc.canvas.width / 2;
             this.posicio.y = joc.canvas.height / 2;
-            this.vx = Math.cos(this.rndAngle());
-            this.vy = Math.sin(this.rndAngle());
+            let rndangle = this.rndAngle();
+            this.vx = 1.5 * Math.cos(rndangle);
+            this.vy = 1.5 * Math.sin(rndangle);
             xoc = true;
             joc.vides--;
             joc.estatJoc = false;
