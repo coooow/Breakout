@@ -195,14 +195,13 @@ body {
 
 #punts-list{
     list-style-type: none;
-    margin-left: 300%;
+    margin-left: 550%;
 }
 
 #jugadors-list{
     list-style-type: none;
-    margin-left: 400%;
 }
 
 #ranking-list li {
-    margin: 7px 0;  
+    margin: 3px 0;  
 }
