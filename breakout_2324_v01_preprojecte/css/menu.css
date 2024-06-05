@@ -107,6 +107,11 @@ body {
     /* Contorno blanco */
 }
 
+#ranking .subtitulo{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 
 .musica {
     position: fixed;  

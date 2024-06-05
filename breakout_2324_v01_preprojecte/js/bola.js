@@ -39,7 +39,7 @@ class Bola {
         let xoc = false;
         let toxtoXoc = false;
         let i = 0;
-        var knock = new Audio("../sounds/632328__audacitier__knock-3.mp3");
+        var knock = document.getElementById("knock");
         $(document).on("keypress", {joc: this}, function (e) {
             if(e.which == 32){
                 joc.estatJoc = true;
@@ -58,8 +58,8 @@ class Bola {
             this.posicio.y = this.radi;
             xoc = true;
             this.vy = -this.vy;
-            this.vx *= 1.03;
-            this.vy *= 1.03;
+            this.vx *= 1.01;
+            this.vy *= 1.01;
             knock.play();
         }
         //Xoc lateral dret 
@@ -68,8 +68,8 @@ class Bola {
             this.posicio.x = joc.canvas.width - this.radi;
             this.vx = -this.vx;
             xoc = true;
-            this.vx *= 1.02;
-            this.vy *= 1.02;
+            this.vx *= 1.01;
+            this.vy *= 1.01;
             knock.play();
         }
         //Xoc lateral esquerra 
@@ -79,8 +79,8 @@ class Bola {
             this.posicio.y = trajectoria.puntB.y - exces * this.vy;
             this.vx = -this.vx;
             xoc = true;
-            this.vx *= 1.02;
-            this.vy *= 1.02;
+            this.vx *= 1.01;
+            this.vy *= 1.01;
             knock.play();
         }
         //Xoc lateral inferior
@@ -125,8 +125,8 @@ class Bola {
                 toxtoXoc = true;
                 joc.totxosArray[i].tocat = true;
                 joc.totxosArray.splice(i, 1);
-                this.vx *= 1.04;
-                this.vy *= 1.04;
+                this.vx *= 1.02;
+                this.vy *= 1.02;
                 joc.punts += 10*joc.pointMultiplier;
                 joc.pointMultiplier += 0.1; 
                 knock.play();
