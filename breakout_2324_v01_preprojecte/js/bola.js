@@ -94,6 +94,7 @@ class Bola {
             joc.vides--;
             joc.estatJoc = false;
             joc.pointMultiplier = 1;
+            joc.pala.posicio = new Punt((joc.canvas.width - 60) / 2, joc.canvas.height - 15)
             return;
         }
 
