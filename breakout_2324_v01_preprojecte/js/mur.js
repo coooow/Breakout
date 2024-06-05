@@ -27,17 +27,17 @@ class Mur {
                     const totxo = new Totxo(puntPosicio, amplada, alcada, this.nivells[lvl].color);
                     this.totxosArray.push(totxo);
                 } else if (character == 'b') {
-                    const totxo1 = new Totxo(puntPosicio, amplada, alcada, "#BF40BF");
+                    const totxo1 = new Totxo(puntPosicio, amplada, alcada, this.nivells[lvl].color);
                     this.totxosArray.push(totxo1);
                     const totxo2 = new Totxo(puntPosicio, amplada, alcada, "#BF40BF");
                     this.totxosArray.push(totxo2);
                 }
-                else if (character == 'b') {
-                    const totxo1 = new Totxo(puntPosicio, amplada, alcada, "#BF40BF");
+                else if (character == 'c') {
+                    const totxo1 = new Totxo(puntPosicio, amplada, alcada, "#df912c");
                     this.totxosArray.push(totxo1);
-                    const totxo2 = new Totxo(puntPosicio, amplada, alcada, "#BF40BF");
+                    const totxo2 = new Totxo(puntPosicio, amplada, alcada, "#df912c");
                     this.totxosArray.push(totxo2);
-                    const totxo3 = new Totxo(puntPosicio, amplada, alcada, "#BF40BF");
+                    const totxo3 = new Totxo(puntPosicio, amplada, alcada, "#df912c");
                     this.totxosArray.push(totxo3);
                 }
             }

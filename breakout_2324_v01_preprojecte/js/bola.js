@@ -105,8 +105,9 @@ class Bola {
         }
         //Xoc amb els totxos del mur
         while (!toxtoXoc && i < joc.totxosArray.length) {
-            if (this.interseccioSegmentRectangle(trajectoria, joc.totxosArray[i])) {
-                switch (this.interseccioSegmentRectangle(trajectoria, joc.totxosArray[i]).vora) {
+            let intsct = this.interseccioSegmentRectangle(trajectoria, joc.totxosArray[i]);
+            if (intsct) {
+                switch (intsct.vora) {
                     case "superior":
                         this.vy = -this.vy;
                         break;
