@@ -39,8 +39,7 @@ class Bola {
         let xoc = false;
         let toxtoXoc = false;
         let i = 0;
-        var knock = new Audio('...sounds/632328__audacitier__knock-3.mp3');
-        
+        var knock = new Audio("../sounds/632328__audacitier__knock-3.mp3");
         $(document).on("keypress", {joc: this}, function (e) {
             if(e.which == 32){
                 joc.estatJoc = true;

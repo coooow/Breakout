@@ -26,6 +26,19 @@ class Mur {
                 if (character == 'a') {
                     const totxo = new Totxo(puntPosicio, amplada, alcada, this.nivells[lvl].color);
                     this.totxosArray.push(totxo);
+                } else if (character == 'b') {
+                    const totxo1 = new Totxo(puntPosicio, amplada, alcada, "#BF40BF");
+                    this.totxosArray.push(totxo1);
+                    const totxo2 = new Totxo(puntPosicio, amplada, alcada, "#BF40BF");
+                    this.totxosArray.push(totxo2);
+                }
+                else if (character == 'b') {
+                    const totxo1 = new Totxo(puntPosicio, amplada, alcada, "#BF40BF");
+                    this.totxosArray.push(totxo1);
+                    const totxo2 = new Totxo(puntPosicio, amplada, alcada, "#BF40BF");
+                    this.totxosArray.push(totxo2);
+                    const totxo3 = new Totxo(puntPosicio, amplada, alcada, "#BF40BF");
+                    this.totxosArray.push(totxo3);
                 }
             }
         }
@@ -44,9 +57,10 @@ class Mur {
             {
                 color: "#D30", // vermell
                 totxos: [
+                    "            ",
+                    "bbbbbbbbbbbb",
                     "aaaaaaaaaaaa",
-                    "aaaaaaaaaaaa",
-                    "aaaaaaaaaaaa",
+                    "aacaaccaacaa",
                     "aaaaaaaaaaaa",
                 ]
             },
