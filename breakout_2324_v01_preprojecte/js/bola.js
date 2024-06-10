@@ -8,7 +8,7 @@ class Bola {
         this.color = "#fff";
     };
 
-    rndAngle(){
+    rndAngle(){ //calcula el angle randomitzat per quan tornis a jugar despres de morir
         let angle = Math.random() * Math.PI;
         while(angle < 0.35 || angle > Math.PI - 0.35 || angle > Math.PI / 2 - 0.2 && angle < Math.PI / 2 + 0.2){
             angle = Math.random() * Math.PI;
@@ -29,7 +29,7 @@ class Bola {
         this.posicio.y += y;
     }
 
-    update() {
+    update() { //xocs amb tot i tot aixo del update
 
         let puntActual = this.posicio;
         let puntSeguent = new Punt(this.posicio.x + this.vx,
@@ -145,7 +145,7 @@ class Bola {
 
     }
 
-    interseccioSegmentRectangle(segment, rectangle) {
+    interseccioSegmentRectangle(segment, rectangle) { //calcular si la trajectoria de la bola xocara amb un totxo
 
         //1r REVISAR SI EXISTEIX UN PUNT D'INTERSECCIÓ EN UN DELS 4 SEGMENTS
         //SI EXISTEIX, QUIN ÉS AQUEST PUNT

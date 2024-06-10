@@ -26,7 +26,7 @@ class Joc {
         $("#vides").append("<p>Vides: " + 3 + "</p>");
     }
 
-    draw() {
+    draw() { //tota la gestio dibuix
         this.clearCanvas();
         this.pala.draw(this.ctx);
         this.mur.draw(this.ctx);
@@ -43,7 +43,6 @@ class Joc {
         } else if (this.vides > 0 && this.estatJoc == true){ 
             this.bola.draw(this.ctx);
         } else if (this.estatJoc == false){ //si acabes de morir
-            console.log("guh");
             document.querySelector(".popup").style.display = "flex";
         } else { 
             document.querySelector(".popup").style.display = "none";
@@ -54,7 +53,7 @@ class Joc {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
     }
 
-    inicialitza(lvl, first) {
+    inicialitza(lvl, first) { //per inicialitzar cada joc
         this.vides = 3;
         if(!first){
             this.punts = 0;
@@ -103,7 +102,7 @@ class Joc {
     }
 
     
-    addHearts(){
+    addHearts(){ //per afegir els cors al menu de joc
         const myDiv = document.getElementById('vides');
         const img = document.createElement('img');
         img.src = 'path/to/your/image.jpg';
@@ -114,7 +113,7 @@ class Joc {
     
 
 
-    update() {
+    update() { //update a cada frame
         var p = document.querySelector("#punts p");
         var v = document.querySelector("#vides p");
     
@@ -140,7 +139,7 @@ class Joc {
 }
 
 
-window.onload = function() {
+window.onload = function() { //pq quan cargui joc surti el popup de donarli a espai
     var popup = document.getElementById("popup");
     popup.style.display = "flex";
   };

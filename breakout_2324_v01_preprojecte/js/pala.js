@@ -12,7 +12,7 @@ class Pala {
         this.color = "#D30";
     }
 
-    update() {
+    update() { //mou si LEFT o RIGHT estan apretadas
         if (joc.key.LEFT.pressed) {
             if (this.posicio.x <= 0 || joc.estatJoc == false) {
                 return;

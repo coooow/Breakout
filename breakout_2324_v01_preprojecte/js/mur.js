@@ -14,7 +14,7 @@ class Mur {
     posició fins trobar una altre 'a' o fins que s'acabi la String
     */
 
-    generaMur(lvl) {
+    generaMur(lvl) { //genera el mur depenent del nivel del parametre
         this.totxosArray = [];      //buida la Array per si es necessités tornar a usar el mètode
         for (let i = 0; i < this.nivells[lvl].totxos.length; i++) {
             for (let j = 0; j < this.nivells[lvl].totxos[i].length; j++) {
@@ -46,7 +46,7 @@ class Mur {
     }
 
   
-    draw(ctx) {
+    draw(ctx) { 
         for (let i = 0; i < this.totxosArray.length; i++){
             this.totxosArray[i].draw(ctx);
         }

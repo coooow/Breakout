@@ -5,11 +5,11 @@ let lvl = 3;
 let firstPunts = false;
 let firstJoc = false;
 
-$(document).ready(function () {
+$(document).ready(function () { //pq cuando inicie el html mostri el ranking actual
     mostrarRanking();
 });
 
-function canviMenu() {
+function canviMenu() { //gestiona el canvi entre joc i menu
     let myCanvas = document.getElementById("joc");
     let ctx = myCanvas.getContext("2d");
     const playerName = document.getElementById('player-name').value;
@@ -40,21 +40,23 @@ function canviMenu() {
     }
 }
 
-function repetirNivell(){
+function repetirNivell(){ //per repetir el mateix nivell
     firstPunts = false;
     joc.inicialitza(lvl, firstPunts);
 }
 
-function nextNivell(){
+function nextNivell(){ //per anar al proxim nivell
     firstPunts = true;
     lvl = lvl - 1;
     joc.inicialitza(lvl, firstPunts);
 }
 
-function animacio() {
+function animacio() { //animació
     joc.update();
     requestAnimationFrame(animacio);
 }
+
+//funcions botons
 
 function activarHover1(boton) {
     removerHover();
@@ -81,7 +83,9 @@ function removerHover() {
     });
 }
 
-function guardarYMostrarRanking(playerName) {
+//funcions pel ranking
+
+function guardarYMostrarRanking(playerName) { //crida les funcions de abaix i ho mostra al menu
     if (playerName.trim() !== "") {
         guardarJugador(playerName);
         mostrarRanking();
@@ -89,7 +93,7 @@ function guardarYMostrarRanking(playerName) {
     }
 }
 
-function guardarJugador(nombre) {
+function guardarJugador(nombre) { //guarda el nom del jugador i seus punts
     if (!nombre) return;
 
     var jugadores = JSON.parse(localStorage.getItem('jugadores')) || [];
@@ -102,7 +106,7 @@ function guardarJugador(nombre) {
     localStorage.setItem('jugadores', JSON.stringify(jugadores));
 }
 
-function mostrarRanking() {
+function mostrarRanking() { //mostrar ranking al html
     const puntsList = document.getElementById('punts-list');
     puntsList.innerHTML = '';
     const jugadorList = document.getElementById('jugadors-list');
@@ -121,6 +125,6 @@ function mostrarRanking() {
     })
 }
 
-function resetStorage() {
+function resetStorage() { //resetea el localstorage
     localStorage.clear();
 }
